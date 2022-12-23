@@ -1,0 +1,8 @@
+.sidebar-nav {
+    margin-top: 20px;
+    padding: 0;
+    list-style: none;
+}
+.sidebar-nav:hover {
+    margin-left: 7px;
+}

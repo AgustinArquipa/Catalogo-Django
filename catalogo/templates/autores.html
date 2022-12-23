@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+ <h1>Autores</h1>
+ <p><a href="{% url 'autor_new' %}">Nuevo</a></p>
+
+ <div class="row">
+    {% if autores %}
+     {% for autor in autores %}
+        <div class="col-md-4">
+            <div class="card mb-2">
+                {% if autor.foto %}
+                <img class="card-img-top" src="{{ autor.foto.url }}">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ autor.apellido }}</h5>
+                    <p class="card-text">{{ autor.nombre }}</p>
+                    <a href="{% url 'autor_update' autor.id %}"
+                    class="btn btn-primary">Actualizar</a>
+                </div>
+            </div>
+        </div>
+     {% endfor %}
+    {% else %}
+        <p>Oops! No tenemos Autores en el catalogo.</p>
+    {% endif %}
+
+ </div>
+{% endblock %}

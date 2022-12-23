@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+ <h1>Listado</h1>
+ {% if libros %}
+ <ul>
+    {% for libro in libros %}
+    <li>
+    <a href="{% url 'libro' libro.id %}">{{ libro.titulo }}</a>
+   ({{libro.autor}})
+    </li>
+    {% endfor %}
+ </ul>
+ {% else %}
+ <p>Oops! No tenemos libros en catálogo.</p>
+ {% endif %}
+{% endblock %} 
