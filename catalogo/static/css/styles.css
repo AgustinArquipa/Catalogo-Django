@@ -6,3 +6,12 @@
 .sidebar-nav:hover {
     margin-left: 7px;
 }
+
+.box {
+    background-color: chocolate;
+}
+
+h2 {
+    background-color: chartreuse;
+    color: black;
+}

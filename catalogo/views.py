@@ -192,3 +192,17 @@ class IdiomasListView(generic.ListView):
         context['idiomas'] = idiomas
 
         return context
+
+class EjemplarListView(generic.ListView):
+    model = Ejemplar
+    context_object_name = 'ejemplares'
+    queryset = Ejemplar.objects.all()
+    template_name = 'ejemplares.html'
+
+    def get_context_data(self, **kwargs):
+        ejemplares = Ejemplar.objects.all()
+        
+        context = super(EjemplarListView, self).get_context_data(**kwargs)
+        context['ejemplares'] = ejemplares
+
+        return context
