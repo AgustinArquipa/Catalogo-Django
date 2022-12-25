@@ -211,3 +211,11 @@ class EjemplarDetailView(generic.DetailView):
     model = Ejemplar
     template_name = 'ejemplar.html'
     
+    def ejemplar_detail_view(request, pk):
+        
+        try:
+            ejemplar = Ejemplar.objects.get(pk=pk)
+        except:
+            raise Http404("Ooops! El ejemplar no exite.")
+        
+        return render(request, 'ejemplar.html', {'ejemplar':ejemplar})

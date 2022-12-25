@@ -98,7 +98,7 @@ class Ejemplar(models.Model):
         ('p', 'Prestado'),
         ('d', 'Disponible'),
         ('r', 'Reservado'),
-    )
+    ) 
         
     estado = models.CharField(max_length=1, choices=ESTADO_EJEMPLAR, blank=True, default='d', help_text='Disponibilidad del ejemplar')
 

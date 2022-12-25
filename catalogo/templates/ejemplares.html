@@ -9,7 +9,7 @@
 {% if ejemplares %}
 <ul class="menu">
     {% for ejemplar in ejemplares %}
-    <li><a href="">{{ ejemplar.libro }}</a> ({{ ejemplar.id }}) </li>
+    <li><a href="{% url 'ejemplar' ejemplar.id %}">{{ ejemplar.libro }}</a> ({{ ejemplar.id }}) </li>
     {% endfor %}
 </ul>
 {% else %}
@@ -17,7 +17,7 @@
 {% endif %}
 &nbsp;
 <div class="d-flex justify-content-end">
-    <button class="btn bt-sm btn-primary" type="button">Nuevo Ejemplar</button>
+    <a href="" class="btn btn-sm btn-primary">Nuevo Ejemplar</a>
 </div>
 
 {% endblock %}

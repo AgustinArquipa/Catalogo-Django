@@ -17,4 +17,5 @@ urlpatterns = [
     path('idiomas/', views.IdiomasListView.as_view(), name='idiomas'),
 
     path('ejemplares/', views.EjemplarListView.as_view(), name='ejemplares'),
+    path('ejemplar/<pk>', views.EjemplarDetailView.as_view(), name='ejemplar'),
 ]
