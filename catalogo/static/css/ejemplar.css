@@ -1,0 +1,31 @@
+.box {
+    background-color: chocolate;
+}
+
+h2 {
+    text-align: center;
+    background-color: chocolate;
+    color: black;
+}
+
+ul.menu {
+    border: 1px solid #7C7C7C;
+    border-bottom: none;
+    list-style: square;
+    margin: 0;
+    padding: 0;
+    width: 1075px;
+}
+ul.menu li {
+    background: #F4F4F4;
+    border-bottom: 1px solid #7C7C7C;
+    border-top: 1px solid #FFF;
+    white-space: nowrap;
+}
+
+ul.menu li a {
+    color: #333;
+    display: inline-block;
+    padding: .2em 0 .2em .5em;
+    text-decoration: none;
+}

@@ -206,3 +206,8 @@ class EjemplarListView(generic.ListView):
         context['ejemplares'] = ejemplares
 
         return context
+
+class EjemplarDetailView(generic.DetailView):
+    model = Ejemplar
+    template_name = 'ejemplar.html'
+    

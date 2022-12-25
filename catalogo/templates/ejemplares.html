@@ -1,7 +1,24 @@
 {% extends "base.html" %}
+{% block page_content %}
+{% load static %}
 {% block content %}
+<link rel="stylesheet" href="{% static 'css/ejemplar.css' %}">
 <div class="box">
     <h2>Lista Ejemplares</h2>
 </div>
+{% if ejemplares %}
+<ul class="menu">
+    {% for ejemplar in ejemplares %}
+    <li><a href="">{{ ejemplar.libro }}</a> ({{ ejemplar.id }}) </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>Ooops! No tenemos ejemplares cargados.</p>
+{% endif %}
+&nbsp;
+<div class="d-flex justify-content-end">
+    <button class="btn bt-sm btn-primary" type="button">Nuevo Ejemplar</button>
+</div>
 
+{% endblock %}
 {% endblock %}
