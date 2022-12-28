@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2>Libro: <a style="color: brown;" href="">{{ ejemplar.libro }}</a></h2>
+<h2>Libro: <a style="color: brown;" href="{% url 'libro' ejemplar.libro.id %}">{{ ejemplar.libro }}</a></h2>
 <p><strong>ID: </strong>{{ ejemplar.id }}</p>
 <p><strong>Fecha de Devolucion:</strong> {{ ejemplar.fechaDevolucion }}</p>
 <p><strong>Estado:</strong> {{ ejemplar.estado }}</p>

@@ -17,6 +17,7 @@
                     <p class="card-text">{{ autor.nombre }}</p>
                     <a href="{% url 'autor_update' autor.id %}"
                     class="btn btn-primary">Actualizar</a>
+                    <a href="{% url 'autor' autor.id %}" class=" btn btn-success">Ver</a>
                 </div>
             </div>
         </div>

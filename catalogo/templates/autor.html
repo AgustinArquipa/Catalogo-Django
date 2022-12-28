@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card mb-3" style="max-width: 100%;">
+    <div class="row no-gutters">
+        <div class="col-md-4">
+            <img class="img-fluid" src="{{ autor.foto.url }}">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">{{ autor.apellido }}, {{ autor.nombre }}</h5>
+                <!-- Pensar en una descripcion para cada autor,  breve -->
+                <p class="card-text">Fecha de Nacimeinto: {{ autor.fechaNac }}</p>
+                {% if autor.fechaDeceso %}
+                <p class="card-text">Fecha de Fallecimiento: {{ autor.fechaDeceso }}</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

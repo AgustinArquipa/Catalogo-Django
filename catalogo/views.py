@@ -61,6 +61,18 @@ class AutoresListView(generic.ListView):
 
         return context
 
+class AutorDetailView(generic.DetailView):
+    model = Autor
+    template_name = 'autor.html'
+
+    def autor_detail_view(request, pk):
+        try: 
+            autor = Autor.objects.get(pk=pk)
+        except Autor.DoesNotExist:
+            raise Http404('Ooops! No existe el autor')
+
+        return render(request, 'autor.html', {'autor':autor})
+
 def genero_new(request):
 
     if request.method == "POST":
@@ -153,7 +165,7 @@ class LibroListView(generic.ListView):
     def get_context_data(self, **kwargs):
         libros = Libro.objects.all()
         
-        context = super(LibroListView,self).get_context_data(**kwargs)
+        context = super(LibroListView, self).get_context_data(**kwargs)
         context['libros'] = libros
         
         return context
