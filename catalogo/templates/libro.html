@@ -4,7 +4,7 @@
     <h1>Título: {{ libro.titulo }}</h1>
     
     <p><strong>Imagen:</strong> <img src={{ libro.avatar.url }} width="70" height="100"/></p>
-    <p><strong>Autor:</strong> <a href="">{{ libro.autor }}</a></p>
+    <p><strong>Autor:</strong> <a href="{% url 'autor' libro.autor.id %}">{{ libro.autor }}</a></p>
     <p><strong>Resumen:</strong> {{ libro.resumen }}</p>
     <p><strong>ISBN:</strong> {{ libro.isbn }}</p>
     <p><strong>Idioma:</strong> {{ libro.idioma }}</p>
