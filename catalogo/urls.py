@@ -19,4 +19,6 @@ urlpatterns = [
 
     path('ejemplares/', views.EjemplarListView.as_view(), name='ejemplares'),
     path('ejemplar/<pk>', views.EjemplarDetailView.as_view(), name='ejemplar'),
+    path('ejemplar/new/', views.ejemplar_new, name='ejemplar_new'),
+    path('ejemplar/update/<pk>', views.ejemplar_update, name='ejemplar_update'),
 ]

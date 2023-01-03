@@ -9,15 +9,19 @@
 {% if ejemplares %}
 <ul class="menu">
     {% for ejemplar in ejemplares %}
-    <li><a href="{% url 'ejemplar' ejemplar.id %}">{{ ejemplar.libro }}</a> ({{ ejemplar.id }}) </li>
+    <li><a href="{% url 'ejemplar' ejemplar.id %}">{{ ejemplar.libro }}</a> ({{ ejemplar.id }}) 
+        &nbsp;
+        <a style="text-align: end;" href="{% url 'ejemplar_update' ejemplar.id %}" class="btn btn-success">Editar</a>
+        <a style="text-align: end;" href="" class="btn btn-danger">Eliminar</a>
+    </li>
     {% endfor %}
 </ul>
 {% else %}
 <p>Ooops! No tenemos ejemplares cargados.</p>
 {% endif %}
-&nbsp;
+<br>
 <div class="d-flex justify-content-end">
-    <a href="" class="btn btn-sm btn-primary">Nuevo Ejemplar</a>
+    <a href="{% url 'ejemplar_new' %}" class="btn btn-sm btn-primary">Nuevo Ejemplar</a>
 </div>
 
 {% endblock %}

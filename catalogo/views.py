@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic
 from catalogo.models import Genero, Idioma, Autor, Libro, Ejemplar
 from django.http import Http404
-from catalogo.forms import GeneroForm, AutorForm
+from catalogo.forms import GeneroForm, AutorForm, EjemplarForm
 
 # Create your views here.
 def hello(request):
@@ -231,3 +231,35 @@ class EjemplarDetailView(generic.DetailView):
             raise Http404("Ooops! El ejemplar no exite.")
         
         return render(request, 'ejemplar.html', {'ejemplar':ejemplar})
+
+def ejemplar_new(request):
+    if request.method == 'POST':
+        form = EjemplarForm(request.POST)
+        if form.is_valid():
+            ejemplar = form.save(commit=False)
+            ejemplar.id = form.cleaned_data['id']
+            ejemplar.libro = form.cleaned_data['libro']
+            ejemplar.fechaDevolucion = form.cleaned_data['fechaDevolucion']
+            ejemplar.estado = form.cleaned_data['estado']
+            ejemplar.save()
+        return redirect('ejemplares')
+    else:
+        form = EjemplarForm()
+    return render(request, 'ejemplar_new.html', {'formulario':form})
+
+def ejemplar_update(request, pk):
+    ejemplar = get_object_or_404(Ejemplar, pk=pk)
+
+    if request.method == 'POST':
+        form = EjemplarForm(request.POST)
+        if form.is_valid():
+            ejemplar.id = form.cleaned_data['id']
+            ejemplar.libro = form.cleaned_data['libro']
+            ejemplar.estado = form.cleaned_data['estado']
+            ejemplar.fechaDevolucion = form.cleaned_data['fechaDevolucion']
+            ejemplar.save()
+            return redirect('ejemplares')
+    else:
+        form = EjemplarForm(instance=ejemplar)
+
+    return render(request, 'ejemplar_new.html', {'formulario':form})

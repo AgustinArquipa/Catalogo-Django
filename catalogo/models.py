@@ -102,11 +102,11 @@ class Ejemplar(models.Model):
         
     estado = models.CharField(max_length=1, choices=ESTADO_EJEMPLAR, blank=True, default='d', help_text='Disponibilidad del ejemplar')
 
-    def __str__(self) -> str:
-        return '%s (%s)' % (self.id, self.libro.titulo)
-
     class Meta:
         ordering = ["fechaDevolucion"]
 
-        def __str__(self) -> str:
-            return '%s (%s)' % (self.id, self.libro.titulo)
+    def __str__(self) -> str:
+        return '%s (%s)' % (self.id, self.libro.titulo)
+
+    def tituloEstado(self):
+        return '(%s)' % (self.get_estado_display())

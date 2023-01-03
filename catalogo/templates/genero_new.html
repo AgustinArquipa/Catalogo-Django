@@ -4,8 +4,9 @@
 {% block content %}
 
     <h2>Nuevo Género</h2>
-    <form method="POST" class="post-form">{% csrf_token %}
-        {{ formulario.as_p }}
+    <form method="POST" class="post-form">
+        {% csrf_token %}
+        {{ formulario|crispy }}
             <button type="submit" class="save btn btn-outline-success">Guardar</button>
     </form>
 

@@ -1,5 +1,5 @@
 from django import forms
-from catalogo.models import Genero, Autor, Ejemplar
+from catalogo.models import *
 from django.forms.widgets import NumberInput
 
 class GeneroForm(forms.ModelForm):
@@ -17,12 +17,12 @@ class AutorForm(forms.ModelForm):
             'fechaDeceso':NumberInput(attrs={'type':'date'}),
         }
 
-'''ESTADO_EJEMPLAR = (
-        ('m', 'en Mantenimiento'),
-        ('p', 'Prestado'),
-        ('d', 'Disponible'),
-        ('r', 'Reservado'),
-    )
+ESTADO_EJEMPLAR = (
+    ('m', 'en Mantenimiento'),
+    ('p', 'Prestado'),
+    ('d', 'Disponible'),
+    ('r', 'Reservado'),
+)
 
 class EjemplarForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
@@ -37,4 +37,8 @@ class EjemplarForm(forms.ModelForm):
 
     class Meta:
         model = Ejemplar
-        fields = ('id', 'libro', 'estado')'''
+        fields = ('id', 'libro', 'estado', 'fechaDevolucion')
+
+        widgets = {
+            'fechaDevolucion':NumberInput(attrs={'type':'date'}),   
+        }
