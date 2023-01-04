@@ -7,6 +7,11 @@ class GeneroForm(forms.ModelForm):
         model = Genero
         fields = ('nombre',)
 
+class IdiomaForm(forms.ModelForm):
+    class Meta:
+        model = Idioma
+        fields = ('nombre',)
+
 class AutorForm(forms.ModelForm):
     class Meta:
         model = Autor

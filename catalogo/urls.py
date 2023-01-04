@@ -16,6 +16,7 @@ urlpatterns = [
     path('autores/update/<pk>', views.autor_update, name='autor_update'),
 
     path('idiomas/', views.IdiomasListView.as_view(), name='idiomas'),
+    path('idiomas/new/', views.idioma_new, name='idioma_new'),
 
     path('ejemplares/', views.EjemplarListView.as_view(), name='ejemplares'),
     path('ejemplar/<pk>', views.EjemplarDetailView.as_view(), name='ejemplar'),

@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic
 from catalogo.models import Genero, Idioma, Autor, Libro, Ejemplar
 from django.http import Http404
-from catalogo.forms import GeneroForm, AutorForm, EjemplarForm
+from catalogo.forms import GeneroForm, AutorForm, EjemplarForm, IdiomaForm
 
 # Create your views here.
 def hello(request):
@@ -204,6 +204,19 @@ class IdiomasListView(generic.ListView):
         context['idiomas'] = idiomas
 
         return context
+
+def idioma_new(request):
+    if request.method == "POST":
+        formulario = IdiomaForm(request.POST)
+        if formulario.is_valid():
+            idioma = formulario.save(commit=False)
+            idioma.nombre = formulario.cleaned_data['nombre']
+            idioma.save()
+            return redirect('idiomas')
+    else:
+        formulario = IdiomaForm()
+
+    return render(request, 'idioma_new.html', {'formulario':formulario})
 
 class EjemplarListView(generic.ListView):
     model = Ejemplar

@@ -2,7 +2,7 @@
 
 {% block content %}
     <h1>Idiomas</h1>
-    <p><a href="">Nuevo</a></p>
+    <p><a href="{% url 'idioma_new' %}">Nuevo</a></p>
 
     {% if idiomas %}
     <ul>
