@@ -8,7 +8,7 @@
     <ul>
         {%for idioma in idiomas %}
         <li>
-            <a href="">{{ idioma.nombre }}</a>
+            <a href="{% url 'idioma_update' idioma.id %}">{{ idioma.nombre }}</a>
         </li>
         {% endfor %}
     </ul>

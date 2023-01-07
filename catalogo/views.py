@@ -190,6 +190,11 @@ class LibroDetailView(generic.DetailView):
         }
         return render(request, 'libro.html', context)
 
+def libro_new(request):
+    if request.method == "POST":
+        formulario = LibroForm(request.POST, request.FILE)
+        pass
+
 #Clase para poder visualizar los idiomas
 class IdiomasListView(generic.ListView):
     model = Idioma
@@ -215,6 +220,20 @@ def idioma_new(request):
             return redirect('idiomas')
     else:
         formulario = IdiomaForm()
+
+    return render(request, 'idioma_new.html', {'formulario':formulario})
+
+def idioma_update(request, pk):
+    idioma = get_object_or_404(Idioma, pk=pk)
+    if request.method == "POST":
+        formulario = IdiomaForm(request.POST, instance=idioma)
+        if formulario.is_valid():
+            idioma = formulario.save(commit=False)
+            idioma.nombre = formulario.cleaned_data['nombre']
+            idioma.save()
+            return redirect('idiomas')
+    else:
+        formulario = IdiomaForm(instance=idioma)
 
     return render(request, 'idioma_new.html', {'formulario':formulario})
 

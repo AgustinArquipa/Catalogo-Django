@@ -22,6 +22,11 @@ class AutorForm(forms.ModelForm):
             'fechaDeceso':NumberInput(attrs={'type':'date'}),
         }
 
+class LibroForm(forms.ModelForm):
+    class Meta:
+        model = Libro
+        fields = ('avatar', 'titulo')
+        pass
 ESTADO_EJEMPLAR = (
     ('m', 'en Mantenimiento'),
     ('p', 'Prestado'),
